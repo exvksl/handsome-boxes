@@ -69,7 +69,7 @@
             if (box) {
                 let width = Math.min(Math.max(20, parseInt(box.style.width) + Math.round((Math.random() - 0.5) * 5)), 120)
                 let left = parseInt(box.style.left) + Math.round((Math.random() - 0.5) * 10)
-                let top = parseInt(box.style.top) + Math.round((Math.random() - 0.5) * 3)
+                let top = Math.max(1000, parseInt(box.style.top) + Math.round((Math.random() - 0.5) * 3))
                 box.style.width = `${width}px`
                 box.style.height = `${width * 2}px`
                 box.style.left = `${left}px`
