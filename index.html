@@ -16,7 +16,7 @@
         .background {
             width: 1920px;
             height: 1080px;
-            background-color: rgba(0, 0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.3);
             background-size: cover;
             padding-top: 60px;
             margin: -10px;
@@ -40,18 +40,18 @@
         let boxInfo = [
             {
                 w: 60,
-                x: 200,
-                y: 400
+                x: 400,
+                y: 200
             },
             {
                 w: 60,
-                x: 1500,
+                x: 1200,
                 y: 300
             },
             {
                 w: 60,
                 x: 800,
-                y: 600
+                y: 500
             }
         ]
         for (let n = 0; n < boxInfo.length; n++) {
@@ -69,7 +69,7 @@
             if (box) {
                 let width = Math.min(Math.max(20, parseInt(box.style.width) + Math.round((Math.random() - 0.5) * 5)), 120)
                 let left = parseInt(box.style.left) + Math.round((Math.random() - 0.5) * 10)
-                let top = Math.max(1000, parseInt(box.style.top) + Math.round((Math.random() - 0.5) * 3))
+                let top = Math.min(1000, parseInt(box.style.top) + Math.round((Math.random() - 0.5) * 3))
                 box.style.width = `${width}px`
                 box.style.height = `${width * 2}px`
                 box.style.left = `${left}px`
