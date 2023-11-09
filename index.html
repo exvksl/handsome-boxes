@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: rgba(0, 0, 0, 0);
+            margin: 0px auto;
+            overflow: hidden;
+        }
+
+        .box {
+            position: relative;
+            border: 3px solid white;
+        }
+
+        .background {
+            width: 1920px;
+            height: 1080px;
+            background-color: rgba(0, 0, 0, 0);
+            background-size: cover;
+            padding-top: 60px;
+            margin: -10px;
+        }
+    </style>
+    <title>我去这框真帅吧</title>
+</head>
+
+<body>
+    <div class="background">
+        <div id="box1" class="box"></div>
+        <div id="box2" class="box"></div>
+        <div id="box3" class="box"></div>
+    </div>
+</body>
+
+
+
+<script>
+    function init() {
+        let boxInfo = [
+            {
+                w: 60,
+                x: 200,
+                y: 400
+            },
+            {
+                w: 60,
+                x: 1500,
+                y: 300
+            },
+            {
+                w: 60,
+                x: 800,
+                y: 600
+            }
+        ]
+        for (let n = 0; n < boxInfo.length; n++) {
+            let box = document.getElementById(`box${n + 1}`)
+            if (box) {
+                box.style.width = `${boxInfo[n]['w']}px`
+                box.style.left = `${boxInfo[n]['x']}px`
+                box.style.top = `${boxInfo[n]['y']}px`
+            }
+        }
+    }
+    function setBox() {
+        for (let index = 1; index <= 3; index++) {
+            let box = document.getElementById(`box${index}`)
+            if (box) {
+                let width = Math.min(Math.max(20, parseInt(box.style.width) + Math.round((Math.random() - 0.5) * 5)), 120)
+                let left = parseInt(box.style.left) + Math.round((Math.random() - 0.5) * 10)
+                let top = parseInt(box.style.top) + Math.round((Math.random() - 0.5) * 3)
+                box.style.width = `${width}px`
+                box.style.height = `${width * 2}px`
+                box.style.left = `${left}px`
+                box.style.top = `${top}px`
+            }
+        }
+    }
+    window.onload = function () {
+        init()
+    }
+    setInterval(setBox, 60)
+</script>
+
+</html>
